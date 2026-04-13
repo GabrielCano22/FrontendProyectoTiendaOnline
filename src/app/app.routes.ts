@@ -18,10 +18,6 @@ export const routes: Routes = [
     loadComponent: () => import('./shared/layout/main-layout/main-layout.component').then(m => m.MainLayoutComponent),
     children: [
       {
-        path: 'dashboard',
-        loadComponent: () => import('./features/dashboard/dashboard.component').then(m => m.DashboardComponent),
-      },
-      {
         path: 'productos',
         loadComponent: () => import('./features/productos/productos.component').then(m => m.ProductosComponent),
       },
@@ -37,33 +33,8 @@ export const routes: Routes = [
         path: 'facturas/:id',
         loadComponent: () => import('./features/facturas/factura-detalle/factura-detalle.component').then(m => m.FacturaDetalleComponent),
       },
-      // Admin only
-      {
-        path: 'categorias',
-        canActivate: [adminGuard],
-        loadComponent: () => import('./features/categorias/categorias.component').then(m => m.CategoriasComponent),
-      },
-      {
-        path: 'usuarios',
-        canActivate: [adminGuard],
-        loadComponent: () => import('./features/usuarios/usuarios.component').then(m => m.UsuariosComponent),
-      },
-      {
-        path: 'descuentos',
-        canActivate: [adminGuard],
-        loadComponent: () => import('./features/descuentos/descuentos.component').then(m => m.DescuentosComponent),
-      },
-      {
-        path: 'gestion-compras',
-        canActivate: [adminGuard],
-        loadComponent: () => import('./features/gestion-compras/gestion-compras.component').then(m => m.GestionComprasComponent),
-      },
-      {
-        path: 'perfil',
-        loadComponent: () => import('./features/perfil/perfil.component').then(m => m.PerfilComponent),
-      },
     ],
   },
 
-  { path: '**', redirectTo: '/dashboard' },
+  { path: '**', redirectTo: '/productos' },
 ];
