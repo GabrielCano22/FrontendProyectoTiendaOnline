@@ -37,6 +37,30 @@ export const routes: Routes = [
         path: 'facturas/:id',
         loadComponent: () => import('./features/facturas/factura-detalle/factura-detalle.component').then(m => m.FacturaDetalleComponent),
       },
+      {
+        path: 'categorias',
+        canActivate: [adminGuard],
+        loadComponent: () => import('./features/categorias/categorias.component').then(m => m.CategoriasComponent),
+      },
+      {
+        path: 'usuarios',
+        canActivate: [adminGuard],
+        loadComponent: () => import('./features/usuarios/usuarios.component').then(m => m.UsuariosComponent),
+      },
+      {
+        path: 'descuentos',
+        canActivate: [adminGuard],
+        loadComponent: () => import('./features/descuentos/descuentos.component').then(m => m.DescuentosComponent),
+      },
+      {
+        path: 'gestion-compras',
+        canActivate: [adminGuard],
+        loadComponent: () => import('./features/gestion-compras/gestion-compras.component').then(m => m.GestionComprasComponent),
+      },
+      {
+        path: 'perfil',
+        loadComponent: () => import('./features/perfil/perfil.component').then(m => m.PerfilComponent),
+      },
     ],
   },
 
