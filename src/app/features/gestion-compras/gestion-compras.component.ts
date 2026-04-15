@@ -54,7 +54,11 @@ export class GestionComprasComponent implements OnInit {
     this.loading.set(true);
     this.facturaService.getAllFacturas().subscribe({
       next: f => { this.facturas.set(f); this.loading.set(false); },
-      error: () => { this.error.set('Error al cargar facturas'); this.loading.set(false); }
+      error: (err) => {
+        this.error.set(err.error?.detail || err.message || 'Error al cargar facturas');
+        this.loading.set(false);
+        console.error('Error cargando facturas admin:', err);
+      }
     });
   }
 
