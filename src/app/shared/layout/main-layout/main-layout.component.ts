@@ -34,6 +34,7 @@ export class MainLayoutComponent implements OnInit {
     const userId = this.auth.getUserId();
     if (userId) {
       this.facturaService.prefetch(userId);
+      this.carritoService.get(userId).subscribe();
     }
   }
 
