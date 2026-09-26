@@ -1,4 +1,4 @@
 export const environment = {
   production: false,
-  apiUrl: 'https://backendproyectotiendaonline.onrender.com',
+  apiUrl: 'https://backend-proyecto-tienda-online.vercel.app',
 };
